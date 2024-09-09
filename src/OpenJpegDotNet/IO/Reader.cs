@@ -100,7 +100,7 @@ namespace OpenJpegDotNet.IO
             this._Image = null;
 
             // ToDo: Support to change format?
-            this._Codec = OpenJpeg.CreateDecompress(CodecFormat.J2k);
+            this._Codec = OpenJpeg.CreateDecompress(CodecFormat.Jp2);
             //this._Codec = OpenJpeg.CreateDecompress(CodecFormat.Jp2);
             this._DecompressionParameters = new DecompressionParameters();
             OpenJpeg.SetDefaultDecoderParameters(this._DecompressionParameters);
