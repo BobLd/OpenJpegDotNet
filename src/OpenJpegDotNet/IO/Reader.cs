@@ -89,7 +89,7 @@ namespace OpenJpegDotNet.IO
 
         #region Methods
 
-        public bool ReadHeader()
+        public bool ReadHeader(CodecFormat codecFormat = CodecFormat.J2k)
         {
             this._Codec?.Dispose();
             this._DecompressionParameters?.Dispose();
@@ -99,9 +99,7 @@ namespace OpenJpegDotNet.IO
             this._DecompressionParameters = null;
             this._Image = null;
 
-            // ToDo: Support to change format?
-            this._Codec = OpenJpeg.CreateDecompress(CodecFormat.J2k);
-            //this._Codec = OpenJpeg.CreateDecompress(CodecFormat.Jp2);
+            this._Codec = OpenJpeg.CreateDecompress(codecFormat);
             this._DecompressionParameters = new DecompressionParameters();
             OpenJpeg.SetDefaultDecoderParameters(this._DecompressionParameters);
 
